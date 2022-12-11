@@ -1,0 +1,106 @@
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
+
+char line[150];
+void loading();
+char arr[100];
+
+int main(){
+
+    char string[1000];
+    FILE *fptr;
+
+    fptr = fopen("---.txt","r");
+
+    if(fptr == NULL){
+        printf("File opening error");
+        exit(0);
+
+    }else{
+
+    loading();
+    
+    }
+    fclose(fptr);
+    return 0;
+}
+
+void loading(){
+    int index=0;
+    int data=0;    
+    char myarr[7]={};
+    char myarr2[10]= {};
+    char myString[100];
+    int forCount[index];
+
+    FILE *fptr;
+    fptr = fopen("---.txt","r");
+    
+    char c = fgetc(fptr);
+    fgets(line, sizeof(line), stdin);
+    while (!feof(fptr)){
+
+        for (int i = 0, j; line[i] != '\0'; ++i) {
+
+            while (!(line[i] >= 'a' && line[i] <= 'z') &&!(line[i] >= 'A' && line[i] <= 'Z') && !(line[i] == '\0')) {
+            for (j = i; line[j] != '\0'; ++j) {
+                line[j] = line[j + 1];
+            }
+            line[j] = '\0';
+        }
+        printf("Data : %c",c);
+        
+        for(int line=1;line<sizeof(line);line++){
+            
+            if(c=='W')
+            myarr[0]=c;
+
+            if(c=='i')
+            myarr[1]=c;
+        
+            if(c=='n')
+            myarr[2]=c;
+
+            if(c=='h')
+            myarr[3]=c;
+            
+            if(c=='t')
+            myarr[4]=c;
+            
+            if(c=='u')
+            myarr[5]=c;
+
+            if(c=='t')
+            myarr[6]=c;
+        printf("My ARR :%s ",myarr);
+        }
+        
+        for(int line=1;line<sizeof(line);line++){
+            
+            if(c=='N')
+            myarr2[0]=c;
+
+            if(c=='C')
+            myarr2[1]=c;
+        
+            if(c=='C')
+            myarr2[2]=c;
+
+            printf("My ARR2 : %s",myarr2);  
+
+        }
+    
+    strcpy(myString,myarr);
+    strcpy(myString,myarr2);
+
+    printf("Data: %s\n",myString);
+    forCount[index]=forCount[index]+1;
+    arr[index]=data;
+    index++;
+    printf("index: %d\n",index);
+    fclose(fptr);
+        }
+    }
+}
+
